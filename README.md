@@ -1,5 +1,8 @@
 # README
 
+This app was initially created with the command line command:
+"rails new odin-twitter --css bootstrap --database=postgresql"
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
