@@ -1,2 +1,10 @@
-<h1>Feeds#show</h1>
-<p>Find me in app/views/feeds/show.html.erb</p>
+<h1>Your Feed</h1>
+<div class="feed">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <h3><%= post.user.username %></h3>
+      <p><%= post.content %></p>
+      <!-- Add more post details and actions here -->
+    </div>
+  <% end %>
+</div>
