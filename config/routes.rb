@@ -13,4 +13,8 @@ Rails.application.routes.draw do
 
   get 'feed', to: 'feeds#show'
 
+  resources :posts do
+    resources :comments, only: %i[new create update edit destroy]
+  end
+
 end
