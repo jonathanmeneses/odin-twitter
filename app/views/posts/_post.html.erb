@@ -6,6 +6,7 @@
       <button id="like-button" class="btn btn-primary">Like</button>
       <span id="like-count">0</span> likes
     </div>
+    <%= render 'relationships/follow_functionality', user: post.user%>
   </div>
   <div class="card-footer">
     <h5>Add a Comment</h5>

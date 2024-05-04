@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'feeds/show'
   devise_for :users
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    resources :relationships, only: [:create, :destroy]
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
