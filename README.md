@@ -1,5 +1,12 @@
 # README
 
+TODO add Likable polymorphic association
+TODO make posts likeable
+TODO make posts commentable
+TODO Add mailer
+TODO make pages live-updatable (e.g. comments, likes, )
+TODO stimulus to update page when a like occurs (should i add javascript or a turbo container?)
+
 This app was initially created with the command line command:
 "rails new odin-twitter --css bootstrap --database=postgresql"
 

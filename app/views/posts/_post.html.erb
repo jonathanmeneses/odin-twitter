@@ -4,7 +4,7 @@
     <p class="card-text"><%= post.content %></p>
     <div class="d-flex justify-content-between align-items-center">
       <% if post.likes.pluck(:user_id).include?(current_user.id)%>
-        <%= button_to "Un-Like", post_like_path(id: post.likes.find_by(user_id: current_user.id)), method: :delete, class: "btn btn-primary" %>
+        <%= button_to "Un-Like", post_like_path(post_id:post.id, id: post.likes.find_by(user_id: current_user.id)), method: :delete, class: "btn btn-primary" %>
       <% else%>
         <%= button_to "Like", post_likes_path(post), method: :post, class: "btn btn-primary" %>
       <%end%>
