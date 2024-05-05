@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, only: %i[new create update edit destroy]
+    resources :likes, only: [:create, :destroy]
   end
 
 end
