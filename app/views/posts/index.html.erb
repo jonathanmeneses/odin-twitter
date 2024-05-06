@@ -1,0 +1,11 @@
+<h1>All Posts</h1>
+<% @posts.each do |post| %>
+  <div class="post">
+    <p>Creator: <%= post.user.username %></p>
+    <p>Created: <%= post.created_at.in_time_zone("Central Time (US & Canada)").strftime("%m/%d/%y at %I:%M %p") %></p>
+    <p>Content: <%= post.content %></p>
+  </div>
+<% end %>
+<div class="new-post">
+  <%= link_to "Create New Post", new_post_path, class: "btn btn-primary" %>
+</div>
