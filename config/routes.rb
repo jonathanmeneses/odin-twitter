@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'feeds/show'
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations'}
   resources :users, only: [:index, :show] do
     resources :relationships, only: [:create, :destroy]
   end
