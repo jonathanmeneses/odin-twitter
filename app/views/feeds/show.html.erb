@@ -1,10 +1,6 @@
 <h1>Your Feed</h1>
 <div class="feed">
   <% @posts.each do |post| %>
-    <div class="post">
-      <h3><%= post.user.username %></h3>
-      <p><%= post.content %></p>
-      <!-- Add more post details and actions here -->
-    </div>
+    <%= render post%>
   <% end %>
 </div>

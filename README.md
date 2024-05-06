@@ -1,11 +1,12 @@
 # README
 
-TODO add Likable polymorphic association
-TODO make posts likeable
-TODO make posts commentable
+TODO Show comments on posts
+TODO Make posts/comments Paginated
+
 TODO Add mailer
 TODO make pages live-updatable (e.g. comments, likes, )
 TODO stimulus to update page when a like occurs (should i add javascript or a turbo container?)
+TODO install [Popper](https://www.youtube.com/watch?v=jyqjecyCv3A&ab_channel=Mix%26Go)
 
 This app was initially created with the command line command:
 "rails new odin-twitter --css bootstrap --database=postgresql"
@@ -30,5 +31,6 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+    Run the app in dev with bin/dev, then open up a separate terminal and run "rdbg -An" for debugging
 
 * ...

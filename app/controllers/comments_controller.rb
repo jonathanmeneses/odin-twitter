@@ -8,12 +8,12 @@ class CommentsController < ApplicationController
   def create
     Rails.logger.info "Received params: #{params.inspect}"
     @comment = @post.comments.build(comment_params)
-    @comment.user = current_user
 
+    @comment.user = current_user
     if @comment.save
-      redirect_to @post, notice: 'Comment saved successfully'
+      redirect_back(fallback_location: root_path, notice: "Comment Saved")
     else
-      redirect_to @post, alert: "Comment Not Saved"
+      redirect_back(fallback_location: root_path, alert: "Comment not Saved") # Add an error message when comment fails to save
     end
   end
 
