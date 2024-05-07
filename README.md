@@ -2,12 +2,10 @@
 
 TODO Make posts/comments Paginated
 
-TODO Add images/Gravatars and create placeholder images
 TODO make pages live-updatable (e.g. comments, likes, )
 TODO stimulus to update page when a like occurs (should i add javascript or a turbo container?)
 TODO install [Popper](https://www.youtube.com/watch?v=jyqjecyCv3A&ab_channel=Mix%26Go)
 TODO Make comments editable, and likeable!
-TODO 
 
 This app was initially created with the command line command:
 "rails new odin-twitter --css bootstrap --database=postgresql"

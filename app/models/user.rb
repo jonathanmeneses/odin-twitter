@@ -24,12 +24,12 @@ class User < ApplicationRecord
   def avatar_format
     return unless avatar.attached?
 
-    if avatar.blob.content_type.start_with? 'image/'
-      avatar.purge_later if avatar.blob.byte_size > 10.megabytes
+    if avatar.blob.byte_size > 10.megabytes
       errors.add(:avatar, 'size needs to be less than 10MB')
-    else
       avatar.purge
+    elsif !avatar.blob.content_type.start_with? 'image/'
       errors.add(:avatar, 'needs to be an image')
+      avatar.purge
     end
   end
 
