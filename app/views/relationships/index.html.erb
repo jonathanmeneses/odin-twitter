@@ -1,0 +1,12 @@
+<h1>Followers:</h1>
+<ul>
+  <% @followers.each do |follower| %>
+    <li><%= link_to follower.username, user_path(follower) %></li>
+  <% end %>
+</ul>
+<h1>Following:</h1>
+<ul>
+  <% @following.each do |followee| %>
+    <li><%= link_to followee.username, user_path(followee) %></li>
+  <% end %>
+</ul>
