@@ -1,4 +1,5 @@
 <h1><%= @user.username%></h1>
+<h3><%= pluralize(@user.followers.count, "follower")%> | <%= @user.following.count%> following</h3>
 <% if @user != current_user%>
   <% if current_user.following.include?(@user)%>
     <%= button_to "Unfollow", user_relationship_path(@user), method: :delete %>

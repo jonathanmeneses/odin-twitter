@@ -28,18 +28,20 @@ users << jonathan
 users.each do |user|
   rand(2..5).times do
     user.posts.create!(
-      title: Faker::Lorem.sentence(word_count: 3),
-      content: Faker::Lorem.paragraph(sentence_count: 2)
+      content: Faker::Lorem.paragraph(sentence_count: 2),
+      created_at: Faker::Time.between(from: user.created_at, to: Date.today)
     )
   end
 
-  users_to_follow = users.reject { |u| u == user }.sample(rand(5..7))
-  users_to_follow << jonathan unless user == jonathan
+  users_to_follow = users.reject { |u| u == user }.sample(rand(5..7)).uniq
   users_to_follow.each do |followed_user|
-    user.follow(followed_user)
+    user.following << followed_user unless user.following.include?(followed_user)
   end
+  user.following << jonathan unless (user.following.include?(jonathan) || user == jonathan)
 end
 
+
+all_posts = Post.all
 users.each do |user|
   # ... previous code ...
 
@@ -47,7 +49,8 @@ users.each do |user|
   all_posts.sample(20).each do |post|
     post.comments.create!(
       user: user,
-      content: Faker::Lorem.sentence(word_count: 10)
+      content: Faker::Lorem.sentence(word_count: 10),
+      created_at: Faker::Time.between(from: user.created_at, to: Date.today)
     )
   end
 
