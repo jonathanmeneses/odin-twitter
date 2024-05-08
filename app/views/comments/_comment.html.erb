@@ -1,6 +1,6 @@
 <div class="d-flex flex-start mt-4">
   <%# Placeholder images %>
-  <%= link_to user_path(comment.user), class: "me-3" do %>
+  <%= link_to user_path(comment.user), class: "me-3", data: { turbo_frame: "_top" }  do %>
     <% if comment.user.avatar.attached? %>
       <%= image_tag comment.user.avatar, class:"rounded-circle shadow-1-strong avatar-dims" %>
     <%else%>

@@ -6,14 +6,27 @@ class CommentsController < ApplicationController
   end
 
   def create
-    Rails.logger.info "Received params: #{params.inspect}"
     @comment = @post.comments.build(comment_params)
-
     @comment.user = current_user
     if @comment.save
-      redirect_back(fallback_location: root_path, notice: "Comment Saved")
+      respond_to do |format|
+        format.turbo_stream {
+          flash.now[:notice] = "Comment Saved"
+          render turbo_stream: [
+            turbo_stream.replace(@post, partial: 'posts/post', locals: { post: @post }),
+            turbo_stream.replace("flash", partial: "layouts/flash")
+          ]
+        }
+        format.html { redirect_back(fallback_location: root_path, notice: "Comment Saved") }
+      end
     else
-      redirect_back(fallback_location: root_path, alert: "Comment not Saved") # Add an error message when comment fails to save
+      flash.now[:alert] = "Comment not Saved"
+      respond_to do |format|
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.replace("flash", partial: "layouts/flash")
+        }
+        format.html { redirect_back(fallback_location: root_path, alert: "Comment not Saved") }
+      end
     end
   end
 

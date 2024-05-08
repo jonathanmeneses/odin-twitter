@@ -6,10 +6,24 @@ class LikesController < ApplicationController
     puts @post.inspect
     like = @post.likes.build(user: current_user)
     if like.save
-      redirect_back(fallback_location: root_path)
+      respond_to do |format|
+        format.turbo_stream {
+          flash.now[:notice] = "Like Added"
+          render turbo_stream: [
+            turbo_stream.replace(@post, partial: 'posts/post', locals: { post: @post }),
+            turbo_stream.replace("flash", partial: "layouts/flash")
+          ]
+        }
+        format.html { redirect_back(fallback_location: root_path, notice: "Like Added") }
+      end
     else
-      puts like.errors.full_messages.to_sentence
-      redirect_back(fallback_location: root_path)
+      flash.now[:alert] = "Like not able to be added"
+      respond_to do |format|
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.replace("flash", partial: "layouts/flash")
+        }
+        format.html { redirect_back(fallback_location: root_path, alert: "Like not able to be added")}
+      end
     end
 
 
@@ -17,7 +31,12 @@ class LikesController < ApplicationController
 
   def destroy
     @post.likes.find(params[:id]).destroy
-    redirect_back(fallback_location: root_path)
+    respond_to do |format|
+      format.turbo_stream {
+        render turbo_stream: turbo_stream.replace(@post, partial: 'posts/post', locals: { post: @post })
+      }
+      format.html { redirect_back(fallback_location: root_path) }
+    end
   end
 
   private

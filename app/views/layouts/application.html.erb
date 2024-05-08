@@ -10,12 +10,15 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div id="messages">
-      <% flash.each do |type, message| %>
-        <div class="<%= type %>"><%= message %></div>
-        
+    <div class="container">
+      <%= turbo_frame_tag "flash" do %>
+        <%= render 'layouts/flash' %>
       <% end %>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <%= yield %>
+        </div>
+      </div>
     </div>
-    <%= yield %>
   </body>
 </html>
