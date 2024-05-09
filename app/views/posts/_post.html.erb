@@ -6,6 +6,11 @@
       </h5>
       <p><%= post.created_at.in_time_zone("Central Time (US & Canada)").strftime("%m/%d/%y at %I:%M %p") %></p>
       <p class="card-text"><%= post.content %></p>
+      <% if post.image.attached? %>
+        <%= image_tag post.image, class: "img-fluid" %>
+      <% elsif post.image_url.present? %>
+        <%= image_tag post.image_url, class: "img-fluid" %>
+      <% end %>
       <div class="d-flex justify-content-start align-items-center gap-1">
         <% if post.likes.pluck(:user_id).include?(current_user.id)%>
           <%= button_to "Un-Like", post_like_path(post_id:post.id, id: post.likes.find_by(user_id: current_user.id)), method: :delete, class: "btn btn-primary" %>

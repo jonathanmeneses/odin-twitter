@@ -32,6 +32,9 @@ gem "jbuilder"
 # Faker gem to add users and posts
 gem "faker"
 
+# Url validator to validate urls
+gem "validate_url"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

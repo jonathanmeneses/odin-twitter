@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
+
   def index
     @posts = Post.all.limit(10)
   end
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: "Post Created"
     else
+      debugger
       render :new, status: :unprocessable_entity
     end
   end
@@ -27,7 +29,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content)
+    params.require(:post).permit(:content, :image, :image_url)
   end
 
 end
