@@ -10,7 +10,7 @@
 # You can set any pagy variable as a Pagy::DEFAULT. They can also be overridden per instance by just passing them to
 # Pagy.new|Pagy::Countless.new|Pagy::Calendar::*.new or any of the #pagy* controller methods
 # Here are the few that make more sense as DEFAULTs:
-# Pagy::DEFAULT[:items]       = 20                    # default
+Pagy::DEFAULT[:items]       = 10                    # default
 # Pagy::DEFAULT[:size]        = [1,4,4,1]             # default in pagy < 7.0
 # Pagy::DEFAULT[:page_param]  = :page                 # default
 # Pagy::DEFAULT[:count_args]  = []                    # example for non AR ORMs
@@ -112,7 +112,7 @@
 
 # Bootstrap extra: Add nav, nav_js and combo_nav_js helpers and templates for Bootstrap pagination
 # See https://ddnexus.github.io/pagy/docs/extras/bootstrap
-# require 'pagy/extras/bootstrap'
+require 'pagy/extras/bootstrap'
 
 # Bulma extra: Add nav, nav_js and combo_nav_js helpers and templates for Bulma pagination
 # See https://ddnexus.github.io/pagy/docs/extras/bulma

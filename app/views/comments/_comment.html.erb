@@ -11,7 +11,7 @@
     <div>
       <div class="d-flex justify-content-between align-items-center">
         <p class="mb-1">
-          <%=comment.user.username%> <span class="small">- <%= comment.created_at.in_time_zone("Central Time (US & Canada)").strftime("%m/%d/%y at %I:%M %p") %></span>
+          <%=comment.user.username%> <span class="small">- <%=time_display(comment.created_at)%></span>
         </p>
       </div>
       <p class="small mb-0">

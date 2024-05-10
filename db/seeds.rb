@@ -47,11 +47,12 @@ users.each do |user|
 
   # Comment on 20 random posts
   all_posts.sample(20).each do |post|
+    time_to_use = Faker::Time.between(from: user.created_at, to: Date.today)
     post.comments.create!(
       user: user,
       content: Faker::Lorem.sentence(word_count: 10),
-      created_at: Faker::Time.between(from: user.created_at, to: Date.today)
-    )
+      created_at: time_to_use,
+      updated_at: time_to_use)
   end
 
   # Like 50% of total posts
