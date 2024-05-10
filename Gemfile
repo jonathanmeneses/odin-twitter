@@ -35,6 +35,9 @@ gem "faker"
 # Url validator to validate urls
 gem "validate_url"
 
+# Use pagy for pagination
+gem 'pagy', '~> 8.4' # omit patch digit
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

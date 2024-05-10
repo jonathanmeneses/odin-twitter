@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.all.limit(10)
+    @pagy, @posts = pagy(Post.all)
   end
 
   def new
