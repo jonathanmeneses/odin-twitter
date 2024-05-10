@@ -8,10 +8,8 @@ class LikesController < ApplicationController
     if like.save
       respond_to do |format|
         format.turbo_stream {
-          flash.now[:notice] = "Like Added"
           render turbo_stream: [
             turbo_stream.replace(@post, partial: 'posts/post', locals: { post: @post }),
-            turbo_stream.replace("flash", partial: "layouts/flash")
           ]
         }
         format.html { redirect_back(fallback_location: root_path, notice: "Like Added") }

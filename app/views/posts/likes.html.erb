@@ -1,6 +1,6 @@
-<h1>Likes for <%= "#{@post.user.username}'s post at #{@post.created_at.in_time_zone("Central Time (US & Canada)").strftime("%m/%d/%y at %I:%M %p")}"%> </h1>
+<h1>Likes for <%= "#{@post.user.username}'s post #{time_display(@post.created_at)}"%> </h1>
 <ul>
   <% @likes.each do |like| %>
-    <li><%= link_to like.user.username, user_path(like.user) %> liked this at <%= like.created_at %></li>
+    <li><%= link_to like.user.username, user_path(like.user) %> liked this <%= time_display(like.created_at) %></li>
   <% end %>
 </ul>

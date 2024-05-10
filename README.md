@@ -1,9 +1,5 @@
 # README
 
-TODO Create a view of all likers of a post
-TODO Make posts/comments Paginated (either infinite scroll or traditional pagination)
-
-TODO install [Popper](https://www.youtube.com/watch?v=jyqjecyCv3A&ab_channel=Mix%26Go)
 TODO Make comments editable, and likeable!
 
 This app was initially created with the command line command:
