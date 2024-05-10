@@ -10,15 +10,12 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div class="container">
+    <div class="container d-flex flex-column justify-content-center align-items-center">
       <%= turbo_frame_tag "flash" do %>
         <%= render 'layouts/flash' %>
       <% end %>
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <%= yield %>
-        </div>
-      </div>
+      <%= turbo_frame_tag "modal" %>
+      <%= yield %>
     </div>
   </body>
 </html>

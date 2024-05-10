@@ -17,7 +17,7 @@
         <% else%>
           <%= button_to "Like", post_likes_path(post), method: :post, class: "btn btn-primary" %>
         <%end%>
-        <span id="like-count"><%=post.likes.count%> likes</span>
+        <span id="like-count"><%=link_to "#{post.likes.count} likes", post_likes_path(post), data: { turbo_frame: "_top" }%></span>
       </div>
     </div>
     <div class="card-footer">

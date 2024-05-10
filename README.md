@@ -1,6 +1,5 @@
 # README
 
-TODO Allow Images to be uploaded
 TODO Create a view of all likers of a post
 TODO Make posts/comments Paginated (either infinite scroll or traditional pagination)
 
