@@ -18,8 +18,7 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['USER'] %> # role previously added
-  password: <%= ENV['DATABASE_PASSWORD'] %> # variable previously added
+  url: <%= ENV["DATABASE_URL"] %>
 
 development:
   <<: *default
@@ -81,6 +80,3 @@ test:
 #
 production:
   <<: *default
-  database: odin_twitter_production
-  username: odin_twitter
-  password: <%= ENV["ODIN_TWITTER_DATABASE_PASSWORD"] %>
