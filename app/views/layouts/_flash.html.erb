@@ -1,9 +1,0 @@
-<% if flash.any? %>
-  <%= turbo_frame_tag "flash" do %>
-    <% flash.each do |name, msg| %>
-      <div class="<%= name  %>">
-        <%= msg %>
-      </div>
-    <% end %>
-  <% end %>
-<% end %>

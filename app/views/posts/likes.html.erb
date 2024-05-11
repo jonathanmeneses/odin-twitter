@@ -1,6 +1,0 @@
-<h1>Likes for <%= "#{@post.user.username}'s post #{time_display(@post.created_at)}"%> </h1>
-<ul>
-  <% @likes.each do |like| %>
-    <li><%= link_to like.user.username, user_path(like.user) %> liked this <%= time_display(like.created_at) %></li>
-  <% end %>
-</ul>
