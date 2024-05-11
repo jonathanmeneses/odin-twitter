@@ -1,0 +1,12 @@
+<h1><%= @user.username%></h1>
+<h3><%= link_to "#{pluralize(@user.followers.count, 'follower')} | #{@user.following.count} following", user_relationships_path(@user) %></h3>
+<% if @user != current_user%>
+  <% if current_user.following.include?(@user)%>
+    <%= button_to "Unfollow", user_relationship_path(@user), method: :delete %>
+  <% else%>
+    <%= button_to "Follow", user_relationships_path(@user), method: :post%>
+  <% end %>
+<% end %>
+<p>Email: <%= @user.email %></p>
+<%= render @user.posts%>
+<%== pagy_bootstrap_nav(@pagy) %>

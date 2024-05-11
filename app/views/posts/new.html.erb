@@ -1,0 +1,17 @@
+<%= form_with(model: @post, url: posts_path, method: :post) do |form| %>
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= form.label :image_url %>
+    <%= form.url_field :image_url, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, accept: 'image/png,image/gif,image/jpeg', class: 'form-control-file' %>
+  </div>
+  <div class="actions">
+    <%= form.submit 'Create Post', class: 'btn btn-primary' %>
+  </div>
+<% end %>
